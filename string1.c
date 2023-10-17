@@ -79,7 +79,7 @@ int _putchar(char c)
 	if (c == BUF_FLUSH || a >= WRITE_BUF_SIZE)
 	{
 		write(1, buf, a);
-		i = 0;
+		a = 0;
 	}
 	if (c != BUF_FLUSH)
 		buf[a++] = c;
