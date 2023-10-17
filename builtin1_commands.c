@@ -26,7 +26,7 @@ int unset_alias(info_t *info, char *str)
 	int ret;
 
 	i = _strchr(str, '=');
-	if (!p)
+	if (!i)
 		return (1);
 	c = *i;
 	*i = 0;
@@ -48,9 +48,9 @@ int set_alias(info_t *info, char *str)
 	char *i;
 
 	i = _strchr(str, '=');
-	if (!p)
+	if (!i)
 		return (1);
-	if (!*++p)
+	if (!*++i)
 		return (unset_alias(info, str));
 
 	unset_alias(info, str);
@@ -102,7 +102,7 @@ int _myalias(info_t *info)
 		}
 		return (0);
 	}
-	for (c = 1; info->argv[i]; c++)
+	for (c = 1; info->argv[c]; c++)
 	{
 		p = _strchr(info->argv[c], '=');
 		if (p)
